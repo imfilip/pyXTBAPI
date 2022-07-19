@@ -32,3 +32,5 @@ response = json.loads(stream_session.recv())
 
 print(response)
 print(response["data"]["balance"])
+
+### Mozna juz korzystac z klasy

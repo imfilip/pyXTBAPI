@@ -1,5 +1,6 @@
 # Ignore file with credentials
 src/secrets.txt
+src/secrets2.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

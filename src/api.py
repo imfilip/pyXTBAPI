@@ -46,13 +46,52 @@ class SessionXTB():
         return response
 
     ### Interactions with streaming server ###
-
+    ### Na potrzeby pozyskiwania płynnych danych (balance, itp.) należy korzystać 
+    # ze specjalnego połączenia - właśnie demoStream.
+    
     def getBalance(self):
         data_dict = {"command": "getBalance", "streamSessionId": self.session_id}
         response = self.send_JSON(data_dict, "stream")
         return response
 
+    def getCandles(self, symbol):
+        data_dict = {"command": "getCandles", "streamSessionId": self.session_id, "symbol": symbol}
+        response = self.send_JSON(data_dict, "stream")
+        return response
+
+    def getKeepAlive(self):
+        data_dict = {"command": "getKeepAlive", "streamSessionId": self.session_id}
+        response = self.send_JSON(data_dict, "stream")
+        return response
     
+    def getNews (self):
+        data_dict = {"command": "getNews ", "streamSessionId": self.session_id}
+        response = self.send_JSON(data_dict, "stream")
+        return response
+    
+    def getProfits(self):
+        data_dict = {"command": "getProfits", "streamSessionId": self.session_id}
+        response = self.send_JSON(data_dict, "stream")
+        return response
+
+    def getTickPrices(self, symbol, minArrivalTime = 5000, maxLevel = 2):
+        data_dict = {"command": "getTickPrices", 
+                     "streamSessionId": self.session_id, 
+                     "symbol": symbol,
+                     "minArrivalTime": minArrivalTime,
+                     "maxLevel": maxLevel}
+        response = self.send_JSON(data_dict, "stream")
+        return response
+
+    ### Interactions with main server ###
+    ### Tutaj raczej mam doczynienia ze statycznymi danymi, stąd inne połączenie.
+    
+    def getAllSymbols(self):
+        data_dict = {"command":"getAllSymbols"}
+        response = self.send_JSON(data_dict, "main")
+        return response
+
+
 
 
 
