@@ -11,3 +11,6 @@ connection_XTB = SessionXTB(main_address = f"wss://ws.xtb.com/demo", stream_addr
 print(connection_XTB)
 connection_XTB.login(username, password)
 print(connection_XTB.session_id)
+
+print(connection_XTB.getBalance())
+connection_XTB.logout()
