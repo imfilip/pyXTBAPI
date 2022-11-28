@@ -1,4 +1,4 @@
-from src.api import SessionXTB
+from scripts.api import SessionXTB
 
 with open("src/secrets.txt") as f:
     lines = f.readlines()

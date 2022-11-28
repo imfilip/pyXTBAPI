@@ -64,7 +64,7 @@ class SessionXTB():
         response = self.send_JSON(data_dict, "stream")
         return response
     
-    def getNews (self):
+    def getNews(self):
         data_dict = {"command": "getNews ", "streamSessionId": self.session_id}
         response = self.send_JSON(data_dict, "stream")
         return response
@@ -80,6 +80,16 @@ class SessionXTB():
                      "symbol": symbol,
                      "minArrivalTime": minArrivalTime,
                      "maxLevel": maxLevel}
+        response = self.send_JSON(data_dict, "stream")
+        return response
+
+    def getTrades(self):
+        data_dict = {"command": "getTrades", "streamSessionId": self.session_id}
+        response = self.send_JSON(data_dict, "stream")
+        return response
+
+    def ping(self):
+        data_dict = {"command": "ping", "streamSessionId": self.session_id}
         response = self.send_JSON(data_dict, "stream")
         return response
 
